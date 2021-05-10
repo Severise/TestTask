@@ -52,7 +52,7 @@ public class Controller {
     void openDelete(ActionEvent event) throws IOException {
         Stage stage = new Stage();
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("view/deleteStudent.fxml"));
-        stage.setTitle("Add student");
+        stage.setTitle("Delete student");
         stage.setScene(new Scene(root));
         stage.show();
     }
@@ -73,7 +73,9 @@ public class Controller {
         try {
             boolean res = Task2.addStudent(fn, mn, ln, date, g);
             Stage stage = (Stage) fName.getScene().getWindow();
-            if (!res) showError("Row was added!");
+            if (res) showInf("Row was added!");
+            else
+                showError("Row wasn't added");
             stage.close();
         } catch (SQLException throwables) {
             showError("Error has happened");
@@ -86,10 +88,11 @@ public class Controller {
         int studId = Integer.parseInt(id.getText());
         try {
             boolean res = Task2.deleteStudent(studId);
-            if (res) {
-                Stage stage = (Stage) id.getScene().getWindow();
-                stage.close();
-            } else showError("Row wasn't deleted!");
+            Stage stage = (Stage) id.getScene().getWindow();
+            if (res)
+                showInf("Row was deleted!");
+            else showError("Row doesn't exist!");
+            stage.close();
         } catch (SQLException throwables) {
             showError("Error has happened");
             throwables.printStackTrace();
@@ -103,6 +106,13 @@ public class Controller {
         stage.setTitle("Students");
         stage.setScene(new Scene(root));
         stage.show();
+    }
+
+    public void showInf(String msg) {
+        Alert errorAlert = new Alert(Alert.AlertType.INFORMATION);
+        errorAlert.setHeaderText("Info");
+        errorAlert.setContentText(msg);
+        errorAlert.showAndWait();
     }
 
     public void showError(String msg) {

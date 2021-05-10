@@ -6,7 +6,7 @@ import java.util.List;
 
 public class Task2 {
 
-    static final String DB = "jdbc:mysql://localhost:3306/TestTaskStudents";
+    static final String DB = "jdbc:mysql://localhost:3306/TestTaskStudents?characterEncoding=UTF-8";
     static final String USER = "root";
     static final String PASS = "";
     private static final String TABLENAME = "students";
