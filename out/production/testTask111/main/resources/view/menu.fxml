@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox prefHeight="176.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.Controller">
+  <children>
+    <MenuBar VBox.vgrow="NEVER">
+      <menus>
+        <Menu mnemonicParsing="false" text="File">
+          <items>
+            <MenuItem mnemonicParsing="false" text="Quit" />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+      <children>
+            <Button layoutX="87.0" layoutY="50.0" mnemonicParsing="false" onAction="#openAdd" prefHeight="50.0" prefWidth="120.0" text="Add student" />
+            <Button layoutX="260.0" layoutY="50.0" mnemonicParsing="false" onAction="#openDelete" prefHeight="50.0" prefWidth="120.0" text="Delete student" />
+            <Button layoutX="433.0" layoutY="50.0" mnemonicParsing="false" onAction="#display" prefHeight="50.0" prefWidth="120.0" text="Display all students" />
+      </children>
+    </AnchorPane>
+  </children>
+</VBox>
